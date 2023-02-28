@@ -1,0 +1,17 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= ENV["DB_USER"] %>
+  host: <%= ENV["DB_HOST"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: contacts_backend
+
+# production:
+#   <<: *default
+#   database: contacts_backend
+  
