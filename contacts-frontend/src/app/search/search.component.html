@@ -1,17 +1,22 @@
 
 <form class="mt-7">   
-    <label for="default-search" class="mb-2 text-sm font-medium text-[#ffc244] sr-only">Search</label>
+    <label for="default-search" class="hidden lg:block mb-2 text-sm font-medium text-[#ffc244] sr-only">Search</label>
     <div class="relative">
-        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <div class="hidden lg:flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
             <svg aria-hidden="true" class="w-5 h-5 text-[#ffc244]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </div>
-        <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-black border border-[#ffc244] rounded-lg bg-gray-50 focus:ring-[#ffc244] focus:border-4 focus:border-[#ffc244] " placeholder="Search Mockups, Logos..." required>
-        <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-[#ff9800] hover:bg-[#ffc244] hover:text-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
+        <input [(ngModel)]="value" name="value" (ngModelChange)="searchName($event)"  type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-black border border-[#ffc244] rounded-lg bg-gray-50 focus:ring-[#ffc244] focus:border-4 focus:border-[#ffc244] " placeholder="Search contacts..." required>
+        <button type="submit" class="hidden lg:block text-white absolute right-2.5 bottom-2.5 bg-[#ff9800] hover:bg-[#ffc244] hover:text-black focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2">Search</button>
     </div>
 </form>
 
-<div class="flex justify-center mt-4">
-    <a href="#new" class="btn bg-[#ffc244] text-black hover:bg-transparent hover:text-white">
-        Add New Contact
+<div class="flex justify-center mt-4 w-full">
+    <a routerLink="new" class="btn bg-[#ffc244] text-black hover:bg-transparent hover:text-white">
+        <span class="hidden lg:block">Add New Contact</span>
+        <div class="lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" />
+              </svg>              
+        </div>
     </a>
 </div>
